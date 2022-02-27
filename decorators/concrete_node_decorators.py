@@ -879,6 +879,7 @@ class VarDecl(Decl):
         self.specific_kind = self.getSpecificKind()
 
     def getSpecificKind(self):
+        #print("type: " + str(self.get_cursor().type))
         k = self.get_cursor().type.kind
         if (k == TypeKind._kinds[112] or k == TypeKind._kinds[114]):  # Constant Array
             return type_stmt.ARRAY
@@ -889,6 +890,8 @@ class VarDecl(Decl):
              k == TypeKind._kinds[23] or k == TypeKind._kinds[19] or k == TypeKind._kinds[9] or
              k == TypeKind._kinds[10] or k == TypeKind._kinds[11]):
             return type_stmt.SCALAR
+        elif (k == TypeKind._kinds[119]):  # Pointer
+            return type_stmt.STRUCT
 
     def specificKind(self):
         return self.specific_kind

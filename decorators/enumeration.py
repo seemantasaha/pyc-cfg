@@ -58,6 +58,7 @@ class type_stmt(Enum):
     ARRAY = 50
     POINTER = 51
     SCALAR = 52
+    STRUCT = 53
 
 
     # TODO: Completar stmts

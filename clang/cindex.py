@@ -546,8 +546,11 @@ class BaseEnumeration(object):
 
     @classmethod
     def from_id(cls, id):
+        #print("len: " + str(len(cls._kinds)))
+        #print(cls._kinds)
+        #print("id: " + str(id))
         if id >= len(cls._kinds) or cls._kinds[id] is None:
-            raise ValueError, 'Unknown template argument kind %d' % id
+            raise ValueError, 'Unknown template argument kind %d' % id 
         return cls._kinds[id]
 
     def __repr__(self):
@@ -1730,6 +1733,7 @@ TypeKind.VARIABLEARRAY = TypeKind(115)
 TypeKind.DEPENDENTSIZEDARRAY = TypeKind(116)
 TypeKind.MEMBERPOINTER = TypeKind(117)
 TypeKind.AUTO = TypeKind(118)
+TypeKind.STRUCT = TypeKind(119)
 
 
 class RefQualifierKind(BaseEnumeration):
